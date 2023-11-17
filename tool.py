@@ -266,10 +266,9 @@ def UploadAction2():
    if file_content:
       for node_text in file_content:
          try:
-            ip=target.get_ip_address(node_text)
-            treeview.insert('', 'end', text=node_text, values=node_text +' '+ip)
+            treeviewcustom.insert('', 'end', text=node_text, values=node_text)
          except:
-            treeview.insert('', 'end', text=node_text, values=node_text +' FAIL')
+            treeviewcustom.insert('', 'end', text=node_text, values=node_text)
 def LinkAction():
    file_path = filedialog.askopenfilename()
 
@@ -455,7 +454,7 @@ mc = Menu(treeviewcustom, tearoff=0)
 mc.add_command(label="Add", command=add_new_line)
 mc.add_command(label="Delete", command=delete_line)
 mc.add_command(label="Update", command=update_line)
-mc.add_command(label="File", command=UploadAction_threading)
+mc.add_command(label="File", command=UploadAction_threading2)
 mc.add_command(label="run>>", command=dic_threading)
 
 
@@ -519,3 +518,4 @@ win.geometry("1000x600")
 win.title("pentest")
 win.mainloop()
 # aovresearcher0@gmail.com
+
