@@ -111,26 +111,29 @@ def add_scanner():
 
 def dic_command():
    item = treeviewcustom.selection()
-   result=treeviewcustom.item(item)['values']
-   for command in result:
-      # Get the operating system name
-      os_name = platform.system()
+   for re in item:
+      result = treeviewcustom.item(re)['values']
+      print(result)
+      for command in result:
+         # Get the operating system name
+         os_name = platform.system()
 
-      # Check if running on Linux
-      if os_name == 'Linux':
-         text_area.insert(tk.END, command + "\n")
-         # Use bash shell to execute the command
-         subprocess.run(['bash', '-c', command])
+         # Check if running on Linux
+         if os_name == 'Linux':
+            text_area.insert(tk.END, command + "\n")
+            # Use bash shell to execute the command
+            subprocess.run(['bash', '-c', command])
 
-      # Check if running on Windows
-      elif os_name == 'Windows':
-         text_area.insert(tk.END, command + "\n")
-         # Use powershell to execute the command
-         printshell=subprocess.run(
-            ['powershell', '-Command', command])
-         print(printshell)
-      else:
-         print(f"Unsupported operating system: {os_name}")
+         # Check if running on Windows
+         elif os_name == 'Windows':
+            text_area.insert(tk.END, command + "\n")
+            # Use powershell to execute the command
+            printshell = subprocess.run(
+               ['powershell', '-Command', command])
+            print(printshell)
+         else:
+            print(f"Unsupported operating system: {os_name}")
+
 
 
 def show_popup():
