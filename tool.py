@@ -266,9 +266,9 @@ def UploadAction2():
    if file_content:
       for node_text in file_content:
          try:
-            treeviewcustom.insert('', 'end', text=node_text, values=node_text)
+            treeviewcustom.insert('', 'end', text=node_text, values=node_text.replace(" ", "\ "))
          except:
-            treeviewcustom.insert('', 'end', text=node_text, values=node_text)
+            treeviewcustom.insert('', 'end', text=node_text, values=node_text.replace(" ", "\ "))
 def LinkAction():
    file_path = filedialog.askopenfilename()
 
@@ -518,4 +518,3 @@ win.geometry("1000x600")
 win.title("pentest")
 win.mainloop()
 # aovresearcher0@gmail.com
-
