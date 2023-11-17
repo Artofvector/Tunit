@@ -224,7 +224,7 @@ def update_line():
    for item in selected_item:
       print(item)
       new_text = entry.get()
-      treeviewcustom.item(item, text=new_text, values=new_text)
+      treeviewcustom.item(item, text=new_text, values=new_text.replace(" ", "\ "))
 
 def UploadAction():
    file_path = filedialog.askopenfilename()
